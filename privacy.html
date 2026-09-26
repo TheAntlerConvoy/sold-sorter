@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sold Sorter Privacy Policy</title>
+<meta name="description" content="How the Sold Sorter browser extension handles your data.">
+<style>
+  :root { --bg: #ffffff; --fg: #1d2422; --muted: #5b6663; --line: #dde3e1; --accent: #0f6e63; color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #171c1b; --fg: #e8eeec; --muted: #a5b1ad; --line: #34403c; --accent: #3fb3a3; color-scheme: dark; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 6px; }
+  h2 { font-size: 19px; margin: 32px 0 8px; }
+  p, li { margin: 0 0 12px; }
+  ul { padding-left: 22px; }
+  a { color: var(--accent); }
+  .muted { color: var(--muted); }
+  .summary { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 20px 0; }
+  code { font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Sold Sorter Privacy Policy</h1>
+  <p class="muted">Effective September 24, 2026</p>
+
+  <div class="summary">
+    <p style="margin:0">Sold Sorter runs entirely in your browser. It has no server of its own, it does not collect analytics, and the developer does not receive your browsing data. The only outside service it talks to is ExtensionPay, and only to check whether you have a Pro subscription or trial.</p>
+  </div>
+
+  <h2>What Sold Sorter reads</h2>
+  <p>Sold Sorter only runs on eBay search results pages and eBay category pages. On those pages it reads the listings shown to you (the item number, title, price, shipping cost, sold count and seller name) so that it can show a sold badge on each listing and sort the results.</p>
+  <p>eBay's search pages often leave out the full number sold, so Sold Sorter can open eBay listing pages in the background to read the total. These requests go directly from your browser to eBay, the same as if you had clicked on the listing yourself. Sold Sorter reads the start of each listing page, takes the sold count, and stops. It does not read or store your eBay account details, messages, watchlist or purchase history.</p>
+  <p>If you use Pro to sort several pages at once, Sold Sorter loads the next pages of the same eBay search from your browser in the same way.</p>
+
+  <h2>What Sold Sorter stores</h2>
+  <p>Sold Sorter stores the following in Chrome's extension storage on your own computer:</p>
+  <ul>
+    <li>Your settings, including the eBay fee rates and the item cost and shipping cost you enter in the profit calculator.</li>
+    <li>Sold totals it has already looked up (the eBay item number, the count and the time it was checked), so the same listing is not looked up twice. These are deleted after 12 hours by default, and you can clear them at any time on the Settings page.</li>
+    <li>A record of when listing lookups were made, used only to limit how many requests Sold Sorter sends to eBay.</li>
+  </ul>
+  <p>None of this is sent to the developer or to anyone else.</p>
+
+  <h2>Payments and Pro</h2>
+  <p>Pro subscriptions and free trials are handled by <a href="https://extensionpay.com">ExtensionPay</a>, and payments are processed by <a href="https://stripe.com/privacy">Stripe</a>. When you start a trial or subscribe, you enter your email address and payment details on ExtensionPay's and Stripe's own pages, not inside the extension. Sold Sorter never sees your card details.</p>
+  <p>To know whether Pro is active, the extension keeps a random ExtensionPay key in Chrome's synced extension storage and asks extensionpay.com for the status of that key. The developer can see the email address and subscription status of paying and trial users in the ExtensionPay dashboard, and uses them only to provide Pro and to answer support requests. ExtensionPay's and Stripe's own privacy policies describe how they handle your information.</p>
+
+  <h2>Problem reports and saved files</h2>
+  <p>If you click "Report a problem", your email program opens a new message that includes the address of the eBay page you were on and some technical details, such as how many listings Sold Sorter found. Nothing is sent unless you choose to send that email.</p>
+  <p>"Save page for tests" and "Export CSV" save files to your computer. They are not uploaded anywhere.</p>
+
+  <h2>What Sold Sorter does not do</h2>
+  <ul>
+    <li>It does not sell, rent or share your data.</li>
+    <li>It does not show ads or track you across websites.</li>
+    <li>It does not run on any website other than eBay search and category pages and extensionpay.com.</li>
+    <li>It does not use your data for anything other than sorting eBay results and providing Pro. This use of data follows the Chrome Web Store User Data Policy, including its Limited Use requirements.</li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><code>storage</code>: saves your settings and the sold totals described above on your computer.</li>
+    <li>eBay search and category pages on each supported eBay country site: needed to read the listings, add the sold badges and sort the results.</li>
+    <li>extensionpay.com: lets the payment page tell the extension that a payment or trial has started.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>Sold Sorter is not directed at children under 13, and it does not knowingly collect information from them.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, the new version will be posted on this page with a new effective date.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy can be sent to <a href="mailto:support@theantlerconvoy.com">support@theantlerconvoy.com</a>.</p>
+
+  <p class="muted" style="margin-top:32px;font-size:14px">Sold Sorter is not affiliated with or endorsed by eBay Inc. eBay is a trademark of eBay Inc.</p>
+</main>
+</body>
+</html>
