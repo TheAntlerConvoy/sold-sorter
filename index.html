@@ -4,23 +4,112 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sold Sorter</title>
-<meta name="description" content="Sold Sorter is a browser extension that sorts eBay search and category results by number sold.">
+<meta name="description" content="Sold Sorter is a browser extension for Chrome and Microsoft Edge that sorts eBay search and category results by number sold.">
 <style>
-  :root { --bg: #ffffff; --fg: #1d2422; --muted: #5b6663; --accent: #0f6e63; color-scheme: light; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #171c1b; --fg: #e8eeec; --muted: #a5b1ad; --accent: #3fb3a3; color-scheme: dark; } }
+  :root { --bg: #ffffff; --fg: #1d2422; --muted: #5b6663; --line: #dde3e1; --soft: #f3f6f5; --accent: #0f6e63; --accent-fg: #ffffff; color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #171c1b; --fg: #e8eeec; --muted: #a5b1ad; --line: #34403c; --soft: #212827; --accent: #3fb3a3; --accent-fg: #0b1614; color-scheme: dark; } }
+  * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  main { max-width: 640px; margin: 0 auto; padding: 48px 16px; }
-  h1 { font-size: 30px; margin: 0 0 8px; }
+  main { max-width: 880px; margin: 0 auto; padding: 0 16px 64px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; }
+  .brand svg { width: 32px; height: 32px; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 16px; font-size: 15px; }
+  nav a:hover { color: var(--accent); }
+  h1 { font-size: 40px; line-height: 1.15; margin: 40px 0 12px; }
+  h2 { font-size: 24px; margin: 48px 0 12px; }
+  h3 { font-size: 18px; margin: 20px 0 6px; }
+  p { margin: 0 0 12px; }
   a { color: var(--accent); }
-  .muted { color: var(--muted); font-size: 14px; }
+  .lead { font-size: 19px; color: var(--muted); max-width: 680px; }
+  .shot { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; margin: 24px 0 8px; display: block; }
+  .muted { color: var(--muted); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card { border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: var(--bg); }
+  .card.pro { border-color: var(--accent); }
+  .price { font-size: 28px; font-weight: 700; margin: 4px 0; }
+  ul { padding-left: 22px; margin: 0 0 12px; }
+  li { margin: 4px 0; }
+  .note { background: var(--soft); border-radius: 10px; padding: 14px 16px; }
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+  @media (max-width: 560px) { h1 { font-size: 30px; } nav a { margin: 0 12px 0 0; } }
 </style>
 </head>
 <body>
 <main>
-  <h1>Sold Sorter</h1>
-  <p>Sold Sorter is a Chrome extension that sorts eBay search and category results by number sold and shows the sold count on every listing.</p>
-  <p><a href="privacy.html">Privacy policy</a> · <a href="mailto:support@theantlerconvoy.com">Contact support</a></p>
-  <p class="muted">Sold Sorter is not affiliated with or endorsed by eBay Inc.</p>
+  <header>
+    <div class="brand">
+      <svg viewBox="0 0 128 128" aria-hidden="true"><rect width="128" height="128" rx="30" fill="#0f6e63"/><rect x="24" y="28" width="22" height="74" rx="7" fill="#fff"/><rect x="53" y="50" width="22" height="52" rx="7" fill="#fff"/><rect x="82" y="72" width="22" height="30" rx="7" fill="#ffc861"/></svg>
+      Sold Sorter
+    </div>
+    <nav><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#policies">Policies</a><a href="privacy.html">Privacy</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <h1>Sort eBay results by number sold</h1>
+  <p class="lead">Sold Sorter is a browser extension for Google Chrome and Microsoft Edge. It adds a "Sort by most sold" button to eBay search and category pages and shows how many of each item have sold.</p>
+  <img class="shot" src="screenshot.png" width="1280" height="800" alt="An eBay search for USB-C chargers sorted by Sold Sorter. The top listing shows 53,372 sold, while eBay's own text for it says 10,000+ sold.">
+  <p class="muted">eBay's search page often shows a lower number like "10,000+ sold", or no number at all. Sold Sorter reads the full total from each listing page.</p>
+
+  <h2 id="features">Features</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Free</h3>
+      <ul>
+        <li>Sort eBay search results and category pages by number sold</li>
+        <li>A sold badge on every listing</li>
+        <li>Works on eBay in the US, UK, Germany, Australia, Canada, France, Italy, Spain, Austria, Switzerland, Ireland, the Netherlands, Belgium, Poland, Singapore, Malaysia and Hong Kong</li>
+      </ul>
+    </div>
+    <div class="card pro">
+      <h3>Pro</h3>
+      <ul>
+        <li>Sort up to 10 result pages together</li>
+        <li>Estimated profit after eBay fees and shipping on every listing</li>
+        <li>Export results to a CSV file for Excel or Google Sheets</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="pricing">Pricing</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Free</h3>
+      <p class="price">$0</p>
+      <p>The Free features, with no time limit and no account needed.</p>
+    </div>
+    <div class="card pro">
+      <h3>Pro</h3>
+      <p class="price">$4.99 a month</p>
+      <p>or $29.99 a year. Includes a 7-day free trial.</p>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:12px">Prices are in US dollars. Subscriptions renew automatically at the end of each month or year until you cancel. Payments are processed by Stripe through ExtensionPay. Sold Sorter never sees your card details.</p>
+  <p>Sold Sorter is installed from the Chrome Web Store and Microsoft Edge Add-ons. Links to both listings will be added here when they are published.</p>
+
+  <h2 id="policies">Policies</h2>
+
+  <h3>Free trial</h3>
+  <p>Pro includes one 7-day free trial per customer. You only need an email address to start it, not a card. When the trial ends, the Pro features lock unless you subscribe. You are never charged for the trial.</p>
+
+  <h3>Cancellation</h3>
+  <p>You can cancel at any time. Click the Sold Sorter button in your browser toolbar, then "Manage subscription". After you cancel, Pro stays active until the end of the month or year you have already paid for, and you are not charged again.</p>
+
+  <h3>Refunds</h3>
+  <p>If Pro does not work for you, email <a href="mailto:support@theantlerconvoy.com">support@theantlerconvoy.com</a> within 14 days of a payment and that payment will be refunded in full. Apart from that, payments are not refunded for time left in a billing period after you cancel.</p>
+
+  <h3>Problems with a charge</h3>
+  <p>If you think you were charged by mistake, please email <a href="mailto:support@theantlerconvoy.com">support@theantlerconvoy.com</a> before contacting your bank. Most problems can be fixed with a refund or a correction, which is faster for you than a bank dispute.</p>
+
+  <h3>Privacy</h3>
+  <p>Sold Sorter runs in your browser, has no server of its own and does not track you. The <a href="privacy.html">privacy policy</a> explains exactly what it reads and stores.</p>
+
+  <h2 id="contact">Contact</h2>
+  <p>Sold Sorter is made by The Antler Convoy. For help, billing questions or refunds, email <a href="mailto:support@theantlerconvoy.com">support@theantlerconvoy.com</a>. We aim to reply within two business days.</p>
+
+  <footer>
+    <p>© 2026 The Antler Convoy · <a href="privacy.html">Privacy policy</a> · <a href="mailto:support@theantlerconvoy.com">support@theantlerconvoy.com</a></p>
+    <p>Sold Sorter is not affiliated with or endorsed by eBay Inc. eBay is a trademark of eBay Inc.</p>
+  </footer>
 </main>
 </body>
 </html>
