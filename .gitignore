@@ -1,0 +1,12 @@
+# Secrets and environment files
+.env
+.env.*
+
+# Private keys and certificates
+*.pem
+id_*
+
+# Database dumps
+*.sql.gz
+*.dump
+*.sqlite
